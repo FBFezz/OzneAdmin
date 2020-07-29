@@ -1452,7 +1452,7 @@ Citizen.CreateThread(function()
 			elseif WarMenu.Button("Expulser du Vehicle") then
 				ClearPedTasksImmediately(GetPlayerPed(SelectedPlayer))
 			elseif WarMenu.Button("Revive le joueur") then
-				TriggerServerEvent('esx_ambulancejob:revive2', GetPlayerServerId(SelectedPlayer))
+				TriggerEvent('esx_ambulancejob:revive2', GetPlayerServerId(SelectedPlayer))
 			end
 			
 			WarMenu.Display()
