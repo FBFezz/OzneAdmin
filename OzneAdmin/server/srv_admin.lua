@@ -89,7 +89,7 @@ AddEventHandler("ReviveAll", function()
 	SendWebhookMessageMenuStaff(webhook,"**Un staff à utilisé un revive all** \n```diff\nJoueurs: "..name.."\nID du joueurs: "..source.." \n[Detection #".. platenum .."].```")
 	for i=1, #xPlayers, 1 do
 		local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
-		TriggerEvent('esx_ambulancejob:revive2', xPlayers[i])
+                TriggerClientEvent('esx_ambulancejob:revive', xPlayers[i])
 	end
 end)
 
