@@ -1473,16 +1473,19 @@ Citizen.CreateThread(function()
 		elseif IsDisabledControlPressed(0, 289) then
 			ESX.TriggerServerCallback('RubyMenu:getUsergroup', function(group)
 				playergroup = group
+				local mugshot, mugshotStr = ESX.Game.GetPedMugshot(GetPlayerPed(-1))
 				if playergroup == 'superadmin' or playergroup == 'owner' then
 					superadmin = true
 					Citizen.Wait(10)
 					WarMenu.OpenMenu('MainMenu')
-					ESX.ShowAdvancedNotification('STAFF INFO', 'STAFF MENU ~g~ON', 'Menu staff ouvert.\nTon grade:~g~ '..playergroup..'', 'CHAR_ACTING_UP	', 8)
+					ESX.ShowAdvancedNotification('STAFF INFO', 'STAFF MENU ~g~ON', 'Menu staff ouvert.\nTon grade:~g~ '..playergroup..'', mugshotStr, 8)
+					UnregisterPedheadshot(mugshot)
 				elseif playergroup == 'dev' or playergroup == 'mod' or playergroup == 'admin' then
 					superadmin = false
 					Citizen.Wait(10)
 					WarMenu.OpenMenu('MainMenu')
-					ESX.ShowAdvancedNotification('STAFF INFO', 'STAFF MENU ~g~ON', 'Menu staff ouvert.\nTon grade:~g~ '..playergroup..'', 'CHAR_ACTING_UP	', 8)
+					ESX.ShowAdvancedNotification('STAFF INFO', 'STAFF MENU ~g~ON', 'Menu staff ouvert.\nTon grade:~g~ '..playergroup..'', mugshotStr, 8)
+					UnregisterPedheadshot(mugshot)
 				end
 			end)
 		end
